@@ -21,7 +21,7 @@ function gladiatorExpenses(lostFightsCount, helmetPrice, swordPrice, shieldPrice
 
     }
 
-    console.log(`Gladiator expenses: ${expenses} aureus`);
+    console.log(`Gladiator expenses: ${expenses.toFixed(2)} aureus`);
 
 }
 gladiatorExpenses(7, 2, 3, 4, 5);
