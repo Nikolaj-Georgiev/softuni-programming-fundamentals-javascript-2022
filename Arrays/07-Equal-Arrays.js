@@ -15,8 +15,8 @@ function equalArrays(firstArray, secondArray) {
         } else {
             let negativeResult = `Arrays are not identical. Found difference at ${index} index`;
             console.log(negativeResult);
+            break;
         }
     }
-
 }
 equalArrays(['10', '20', '30'], ['10', '20', '30']);
