@@ -12,7 +12,6 @@ function arrayRotation(array, rotations) {
             } else {
                 resultArray[j] = resultArray[j + 1];
             }
-
         }
         resultArray[resultArray.length - 1] = positionHolder;
     }
