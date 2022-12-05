@@ -17,4 +17,4 @@ function maxNumber(array) {
     }
     console.log(resultArray.join(' '));
 }
-maxNumber([14, 24, 3, 19, 15, 17]);
+maxNumber([27, 19, 42, 2, 13, 45, 48]);
