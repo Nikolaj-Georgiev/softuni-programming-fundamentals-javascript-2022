@@ -4,9 +4,7 @@ function tseamAccount(inputArray) {
     for (let iterator of inputArray) {
         workArray.push(iterator);
     }
-    // console.log(workArray);
     let peshosGames = workArray[0].split(' ');
-    // console.log(peshosGames);
     let index = 1;
     let command = workArray[index];
     while (command != 'Play!') {
@@ -18,35 +16,27 @@ function tseamAccount(inputArray) {
                 if (!peshosGames.includes(tempArray[1])) {
                     peshosGames.push(tempArray[1]);
                 }
-                // console.log(peshosGames);
                 break;
 
             case 'Update':
                 if (peshosGames.includes(tempArray[1])) {
                     peshosGames.splice(peshosGames.indexOf(tempArray[1]), 1);
                     peshosGames.push(tempArray[1]);
-                    // console.log(peshosGames);
                 }
                 break;
 
             case 'Expansion':
-                let myArray = tempArray[1].split('-');
-                if (peshosGames.includes(myArray[0])) {
-                    let myLocalString = `${myArray[0]}:${myArray[1]}`
-                        // console.log(myArray);
-                        // console.log(myLocalString);
-                    let gameIndex = peshosGames.indexOf(myArray[0]);
-                    // console.log(gameIndex);
+                let myExpansionArray = tempArray[1].split('-');
+                if (peshosGames.includes(myExpansionArray[0])) {
+                    let myExpansionString = `${myExpansionArray[0]}:${myExpansionArray[1]}`
+                    let gameIndex = peshosGames.indexOf(myExpansionArray[0]);
                     let shiftingArray = [];
-                    for (let i = 0; i <= gameIndex; i++) {
+                    for (let i = 0; i < peshosGames.length; i++) {
                         shiftingArray.push(peshosGames[i]);
+                        if (i == gameIndex) {
+                            shiftingArray.push(myExpansionString);
+                        }
                     }
-                    shiftingArray.push(myLocalString);
-
-                    for (let j = gameIndex + 1; j < peshosGames.length; j++) {
-                        shiftingArray.push(peshosGames[j]);
-                    }
-                    // console.log(shiftingArray);
                     peshosGames = shiftingArray;
                 }
                 break;
@@ -60,14 +50,12 @@ function tseamAccount(inputArray) {
                         }
                     }
                     peshosGames = removingElementArray;
-                    // console.log(peshosGames);
                 }
                 break;
         }
         command = workArray[++index];
     }
     console.log(peshosGames.join(' '));
-    // console.log(peshosGames);
 }
 tseamAccount(['CS WoW Diablo',
     'Install LoL',
