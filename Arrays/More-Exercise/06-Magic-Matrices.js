@@ -22,7 +22,7 @@ function magicMatrices(inputArray) {
                 isMagic = false;
             }
             for (let j = 0; j < workArrayLength; j++) {
-                tempColumnsSum += Number(workArray[i][j]);
+                tempColumnsSum += Number(workArray[j][i]);
 
             }
 
