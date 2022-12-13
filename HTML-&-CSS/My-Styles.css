@@ -1,0 +1,29 @@
+div {
+    display: inline-block;
+    padding: 15px;
+    border: 3px solid black;
+    border-radius: 35%;
+    color: whitesmoke;
+    padding-left: 20px;
+    text-align: center;
+}
+
+.green {
+    background-color: green;
+}
+
+.red {
+    background-color: red;
+}
+
+.blue {
+    background-color: blue;
+}
+
+.purple {
+    background-color: purple;
+}
+
+.orange {
+    background-color: orange;
+}
