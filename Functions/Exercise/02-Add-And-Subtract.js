@@ -6,4 +6,4 @@ function addAndSubtract(firstInt, secondInt, thirdInt) {
     return subtract(sum(firstInt, secondInt), thirdInt);
 
 }
-console.log(addAndSubtract(23, 6, 10));;
+console.log(addAndSubtract(23, 6, 10));
