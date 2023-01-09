@@ -22,14 +22,16 @@ function numberModification(number) {
         return result;
     }
 
-    averageCheck(sumOfDigits(workArray));
-
     function averageCheck(number) {
         if (number <= 5) {
             workArray.push(9);
             averageDivider += 1;
             sumOfDigits(workArray);
-            averageCheck(sumOfDigits(workArray) / averageDivider);
+            if (number <= 5) {
+                averageCheck(sumOfDigits(workArray) / averageDivider);
+            }
+            let result = workArray.join('');
+            return result;
         } else {
             if (workArray[0] === '-') {
                 workArray.shift();
@@ -45,3 +47,4 @@ function numberModification(number) {
     console.log(averageCheck(sumOfDigits(workArray)));
 }
 numberModification(101);
+numberModification(5358);
