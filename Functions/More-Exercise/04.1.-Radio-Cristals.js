@@ -3,39 +3,44 @@ function radioCrystals(input) {
     for (let i = 1; i < input.length; i++) {
         workArray.push(input[i]);
     }
+    let cutCount = 0;
+    let lapCount = 0;
+    let grindCount = 0;
+    let etchCount = 0;
+    let xRayCount = 0;
 
-    let cut = number => number / 4;
-    let lap = number => number - number * 0.2;
+    let desiredThickness = input[0];
+    let currentCrystal;
+
+
+    // let cut = number => number / 4;
+    let lap = number => number * 0.8;
     let grind = number => number - 20;
     let etch = number => number - 2;
     let xRay = number => number + 1;
     let transportAndWashing = number => Math.floor(number);
 
-    let desiredThickness = input[0];
-
     for (let j = 0; j < workArray.length; j++) {
-        let currentCrystal = workArray[j];
-        let cutCount = 0;
-        let lapCount = 0;
-        let grindCount = 0;
-        let etchCount = 0;
-        let xRayCount = 0;
+        currentCrystal = workArray[j];
+        cutCount = 0;
+        lapCount = 0;
+        grindCount = 0;
+        etchCount = 0;
+        xRayCount = 0;
         let cutFlag = false;
         let lapFlag = false;
         let grindFlag = false;
         let etchFlag = false;
         while (currentCrystal !== desiredThickness) {
             if (currentCrystal / desiredThickness >= 4) {
-                currentCrystal = cut(currentCrystal);
-                // currentCrystal = transportAndWashing(currentCrystal);
-                cutCount++;
+                currentCrystal = cut1(currentCrystal, desiredThickness);
                 continue;
             } else {
                 if (cutCount > 0 && !cutFlag) {
                     currentCrystal = transportAndWashing(currentCrystal);
                     cutFlag = true;
                 }
-                if ((lap(currentCrystal) > desiredThickness)) {
+                if (lap(currentCrystal) < grind(currentCrystal) && (lap(currentCrystal) > desiredThickness)) {
                     currentCrystal = lap(currentCrystal);
                     // currentCrystal = transportAndWashing(currentCrystal);
                     lapCount++;
@@ -55,7 +60,7 @@ function radioCrystals(input) {
                             currentCrystal = transportAndWashing(currentCrystal);
                             grindFlag = true;
                         }
-                        if (currentCrystal - 2 >= desiredThickness - 1) {
+                        if (etch(currentCrystal) >= desiredThickness || (etch(currentCrystal) - desiredThickness) == -1) {
                             currentCrystal = etch(currentCrystal);
                             // currentCrystal = transportAndWashing(currentCrystal);
                             etchCount++;
@@ -105,6 +110,19 @@ function radioCrystals(input) {
             console.log(`Finished crystal ${currentCrystal} microns`);
         }
     }
+
+    function cut1(current, desired) {
+        if (current / desired >= 4) {
+            currentCrystal = currentCrystal / 4;
+            // currentCrystal = transportAndWashing(currentCrystal);
+            cutCount++;
+            if (currentCrystal / desiredThickness >= 4) {
+                cut1(currentCrystal, desiredThickness);
+            }
+            return currentCrystal;
+        } else {
+            return currentCrystal;
+        }
+    }
 }
 radioCrystals([1375, 50000]);
-radioCrystals([1000, 4000, 8100]);
