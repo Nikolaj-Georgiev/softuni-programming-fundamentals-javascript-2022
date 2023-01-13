@@ -12,7 +12,6 @@ function uniqueNumbers(array) {
     }
 
     console.log(resultArray.join(' '));
-
 }
 
 uniqueNumbers([1, 2, 3, 4]);
