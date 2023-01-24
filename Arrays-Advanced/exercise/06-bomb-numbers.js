@@ -15,8 +15,6 @@ function bomber(sequenceArray, bombArray) {
                 }
             }
         }
-
-
     }
 
     let sum = 0;
