@@ -5,7 +5,6 @@ function searchForANumber(firstArray, secondArray) {
     let result = slicedArray.filter(x => x === secondArray[2]);
     console.log(`Number ${secondArray[2]} occurs ${result.length} times.`);
 
-
 }
 
 searchForANumber([5, 2, 3, 4, 1, 6], [5, 2, 3]);
