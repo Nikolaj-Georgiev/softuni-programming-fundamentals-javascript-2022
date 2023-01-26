@@ -5,11 +5,8 @@ function equalNeighbors(matrixOfStringArr) {
     for (let i = 0; i < matrixOfStringArr.length; i++) {
         let firstArr = matrixOfStringArr[i];
         let secondArr = matrixOfStringArr[i + 1];
-        for (let k = 0; k < firstArr.length; k++) {
+        for (let k = 0; k < firstArr.length - 1; k++) {
             let firstElement = firstArr[k];
-            if (k === firstArr.length - 1) {
-                continue;
-            }
             let secondElement = firstArr[k + 1];
             if (firstElement === secondElement) {
                 neighbors++;
